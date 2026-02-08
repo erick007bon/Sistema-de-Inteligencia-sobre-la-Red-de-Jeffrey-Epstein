@@ -1,0 +1,27 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vector DB (local only)
+vector_db/
+
+# Node
+node_modules/
+.next/
+
+# Webapp (separate deploy)
+webapp/
