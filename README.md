@@ -1,103 +1,247 @@
-# 🕵️ Sistema de Inteligencia sobre la Red de Jeffrey Epstein
+# 🕵️ Epstein Intelligence System
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Machine Learning](https://img.shields.io/badge/ML-Sentence--BERT-green)
-![Deep Learning](https://img.shields.io/badge/DL-Gemini%202.0-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<div align="center">
 
-## 📊 Descripción
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![Flask](https://img.shields.io/badge/Flask-3.1-green?logo=flask)
+![Gemini](https://img.shields.io/badge/Gemini-2.0-purple?logo=google)
+![Render](https://img.shields.io/badge/Render-Deployed-success?logo=render)
+![Vercel](https://img.shields.io/badge/Vercel-Live-black?logo=vercel)
 
-Sistema de **Inteligencia Artificial** que analiza más de **11,000 documentos** del Departamento de Justicia de Estados Unidos (DOJ) relacionados con el caso Jeffrey Epstein.
+**Sistema de Inteligencia Artificial para Análisis Forense de Documentos**
 
-### 🧠 Tecnologías de IA Utilizadas
+[🌐 Demo en Vivo](https://webapp-ten-cyan.vercel.app) • [📡 API Endpoint](https://sistema-de-inteligencia-sobre-la-red-de.onrender.com) • [📄 Documentación](#arquitectura)
 
-| Componente | Tecnología | Tipo |
-|------------|------------|------|
-| **Chat RAG** | Google Gemini 2.0 Flash | Deep Learning |
-| **Búsqueda Semántica** | Sentence-BERT (all-MiniLM-L6-v2) | Machine Learning |
-| **NER** | spaCy | Machine Learning |
-| **Embeddings** | Sentence Transformers | Deep Learning |
-| **Backend** | Flask + Gunicorn | Python |
+</div>
 
-## 🚀 Características
+---
 
-- ✅ **RAG (Retrieval-Augmented Generation)**: Respuestas basadas en documentos reales
-- ✅ **Búsqueda Semántica**: Busca por significado, no solo palabras clave
-- ✅ **API REST**: Endpoints para integrar con cualquier frontend
-- ✅ **Base de Conocimiento**: 20+ documentos clave indexados
+## 📋 Descripción
+
+Sistema de **Inteligencia Artificial** diseñado para el análisis forense de documentos judiciales utilizando técnicas avanzadas de **NLP (Procesamiento de Lenguaje Natural)** y **RAG (Retrieval-Augmented Generation)**.
+
+El proyecto procesa y analiza documentos del caso Epstein liberados por el Departamento de Justicia de EE.UU., extrayendo entidades, relaciones y patrones mediante algoritmos de Machine Learning.
+
+---
+
+## 🏗️ Arquitectura del Sistema
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        FRONTEND (Vercel)                         │
+│   Next.js 16 + TypeScript + Tailwind CSS + D3.js Force Graph    │
+│                  webapp-ten-cyan.vercel.app                      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼ HTTPS API Calls
+┌─────────────────────────────────────────────────────────────────┐
+│                        BACKEND (Render)                          │
+│         Python Flask + Gemini 2.0 Flash + REST API              │
+│      sistema-de-inteligencia-sobre-la-red-de.onrender.com       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      AI/ML LAYER                                 │
+│  • Gemini 2.0 Flash (LLM)      • NLP Entity Extraction          │
+│  • Sentence-BERT (Embeddings)   • Sentiment Analysis            │
+│  • RAG Pipeline                 • Anomaly Detection             │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      DATA LAYER                                  │
+│  • 14,000+ documentos procesados                                │
+│  • 500+ entidades extraídas (personas, organizaciones, lugares) │
+│  • Grafos de conexiones con PageRank                            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Tecnologías Utilizadas
+
+### Backend (Python)
+| Tecnología | Uso |
+|------------|-----|
+| **Flask 3.1** | Framework API REST |
+| **Gunicorn** | WSGI HTTP Server (Producción) |
+| **Google Gemini 2.0 Flash** | Large Language Model para RAG |
+| **Sentence-BERT** | Embeddings semánticos |
+| **spaCy** | NLP - Extracción de entidades |
+| **CORS** | Cross-Origin Resource Sharing |
+
+### Frontend (TypeScript)
+| Tecnología | Uso |
+|------------|-----|
+| **Next.js 16** | React Framework (SSR/SSG) |
+| **TypeScript** | Tipado estático |
+| **Tailwind CSS** | Estilos utility-first |
+| **D3.js Force Graph** | Visualización de redes |
+| **Leaflet** | Mapas interactivos |
+| **Recharts** | Gráficos y estadísticas |
+
+### Infraestructura
+| Servicio | Rol |
+|----------|-----|
+| **Render** | Backend hosting (API REST) |
+| **Vercel** | Frontend hosting (CDN global) |
+| **GitHub** | Control de versiones + CI/CD |
+
+---
+
+## 🧠 Funcionalidades de IA
+
+### 1. Chat con RAG (Retrieval-Augmented Generation)
+```python
+# El sistema responde preguntas basándose en documentos reales
+POST /api/chat
+{
+    "question": "Who is Ghislaine Maxwell?"
+}
+```
+
+### 2. Extracción de Entidades (NER)
+- **Personas**: 127 individuos identificados
+- **Organizaciones**: 45 entidades corporativas
+- **Ubicaciones**: 38 lugares georeferenciados
+- **Fechas**: 200+ referencias temporales
+- **Dinero**: Transacciones financieras detectadas
+
+### 3. Análisis de Sentimiento
+- Clasificación: Positivo / Negativo / Neutral
+- Score de riesgo por documento
+- Detección de anomalías
+
+### 4. Visualización de Grafos
+- Red de conexiones entre personas
+- Algoritmo PageRank para importancia
+- Clustering de comunidades
+
+---
 
 ## 📡 API Endpoints
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| GET | `/api/health` | Estado del sistema |
-| POST | `/api/chat` | Chat con RAG + Gemini |
-| POST | `/api/search` | Búsqueda semántica |
+| `GET` | `/` | Status del servidor |
+| `GET` | `/api/health` | Health check |
+| `POST` | `/api/chat` | Chat con IA (RAG) |
 
-### Ejemplo de uso:
+### Ejemplo de Uso
 
 ```bash
-# Health check
-curl http://localhost:5001/api/health
+# Health Check
+curl https://sistema-de-inteligencia-sobre-la-red-de.onrender.com/api/health
 
-# Chat con RAG
-curl -X POST http://localhost:5001/api/chat \
+# Chat con IA
+curl -X POST https://sistema-de-inteligencia-sobre-la-red-de.onrender.com/api/chat \
   -H "Content-Type: application/json" \
-  -d '{"question": "Who is Ghislaine Maxwell?"}'
-
-# Búsqueda semántica
-curl -X POST http://localhost:5001/api/search \
-  -H "Content-Type: application/json" \
-  -d '{"query": "flights to island", "top_k": 5}'
+  -d '{"question": "What happened on August 10, 2019?"}'
 ```
 
-## 🛠️ Instalación Local
+---
 
+## 🖥️ Instalación Local
+
+### Requisitos
+- Python 3.11+
+- Node.js 18+
+- API Key de Google Gemini
+
+### Backend
 ```bash
-# Clonar repositorio
-git clone https://github.com/erick007bon/Sistema-de-Inteligencia-sobre-la-Red-de-Jeffrey-Epstein.git
-cd Sistema-de-Inteligencia-sobre-la-Red-de-Jeffrey-Epstein
-
-# Instalar dependencias
+cd PROYECTOS/07_document_forensics
 pip install -r requirements.txt
-
-# Configurar API key de Gemini
-echo "GOOGLE_API_KEY=tu_api_key_aqui" > .env
-
-# Ejecutar
+echo "GOOGLE_API_KEY=tu_api_key" > .env
 python src/ai_backend.py
 ```
 
-## 🌐 Deploy a Railway (Gratis)
+### Frontend
+```bash
+cd webapp
+npm install
+npm run dev
+```
 
-1. Fork este repositorio
-2. Ve a [railway.app](https://railway.app)
-3. Conecta tu cuenta de GitHub
-4. Selecciona este repositorio
-5. Agrega la variable `GOOGLE_API_KEY` en Settings > Variables
-6. ¡Listo! Railway despliega automáticamente
+---
 
-## 📊 Datos Analizados
+## 📊 Resultados del Análisis
 
-| Métrica | Cantidad |
-|---------|----------|
-| Documentos DOJ | 8,429 |
-| Text Messages | 3,377 |
-| Total | **11,806** |
-| Personas identificadas | 562 |
-| Organizaciones | 1,381 |
-| Ubicaciones | 425 |
+| Métrica | Valor |
+|---------|-------|
+| Documentos procesados | 14,000+ |
+| Entidades extraídas | 500+ |
+| Personas identificadas | 127 |
+| Ubicaciones mapeadas | 38 |
+| Referencias de dinero | 45 |
+| Conexiones en grafo | 156 |
+| Anomalías detectadas | 5 |
+
+---
+
+## 🌐 Demo en Producción
+
+| Componente | URL |
+|------------|-----|
+| **Web App** | https://webapp-ten-cyan.vercel.app |
+| **API REST** | https://sistema-de-inteligencia-sobre-la-red-de.onrender.com |
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+07_document_forensics/
+├── src/
+│   └── ai_backend.py          # Backend completo con RAG
+├── app.py                     # Entry point para Render
+├── webapp/
+│   ├── src/
+│   │   ├── app/
+│   │   │   └── page.tsx       # Página principal
+│   │   └── components/
+│   │       ├── AIChat.tsx     # Chat con IA
+│   │       ├── NetworkGraph.tsx # Grafo de conexiones
+│   │       ├── SearchPanel.tsx  # Búsqueda de documentos
+│   │       └── MapAndAnomalies.tsx # Mapa + Anomalías
+│   └── public/
+│       └── data/              # Datos procesados (JSON)
+├── data/
+│   └── processed/             # Entidades y análisis
+├── requirements.txt           # Dependencias Python
+└── README.md                  # Este archivo
+```
+
+---
 
 ## 👤 Autor
 
 **Erick Reinaldo Flores Zambrano**
-- 🔗 GitHub: [@erick007bon](https://github.com/erick007bon)
-- 🇪🇨 Ecuador
 
-## 📄 Licencia
-
-MIT License - Uso libre con atribución.
+- 🎓 Estudiante de Ingeniería en Datos e Inteligencia Artificial
+- 🏛️ Universidad Técnica de Manabí (UTM)
+- 📍 Machala, El Oro, Ecuador 🇪🇨
+- 🔗 [GitHub](https://github.com/erick007bon)
+- 💼 [LinkedIn](https://linkedin.com/in/erick-flores-zambrano)
 
 ---
 
-⭐ Si te gusta este proyecto, dale una estrella en GitHub!
+## 📄 Licencia
+
+MIT License - Ver [LICENSE](LICENSE) para más detalles.
+
+---
+
+## ⚠️ Disclaimer
+
+Este proyecto es únicamente para **fines educativos y de investigación**. Los datos provienen de documentos públicos liberados por el Departamento de Justicia de EE.UU. y están disponibles en [HuggingFace Datasets](https://huggingface.co/datasets).
+
+---
+
+<div align="center">
+
+**⭐ Si te gustó este proyecto, dale una estrella en GitHub ⭐**
+
+</div>
